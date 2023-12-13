@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document5</title>
+  <script>
+  document.write('<h1>IU 이미지 4행 4열</h1>');
+  document.write('<table border="1" cellspacing="0">');
+  	document.write('<tr>');
+	for(var i=1;i<=16;i++){
+			document.write('<td>');
+			document.write('<img src="img/'+i+'.jpg" width="150" height="150">');
+			document.write('</td>');
+			if(i%4==0 && i!=16){
+				document.write('</tr><tr>');
+			}
+	}
+	document.write('</tr>');
+  document.write('</table>');
+  </script>
+ </head>
+ <body>
+
+ </body>
+</html>

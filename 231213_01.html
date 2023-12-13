@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document1</title>
+  <script>
+  function show() {
+	// 1. 사용자값 회수
+	var kor = document.fm.kor.value;
+	kor = parseInt(kor);
+	var eng = document.fm.eng.value;
+	eng = parseInt(eng);
+	var math = document.fm.math.value;
+	math = parseInt(math);
+
+	var sum=kor+eng+math;
+	var avg=sum/3;
+	var level='F';
+
+	//브라우저에서 F12 -> Console 확인이 가능한데?
+	//console.log('result='+avg/10);
+
+	switch(parseInt(avg/10)){
+		case 10: case 9: level='A'; break;
+		case 8: level='B'; break;
+		case 7: level='C'; break;
+		case 6: level='D'; break;
+		default: level='F';
+	}
+
+	var result='합격';
+	if(kor<40||eng<40||math<40||avg<60){
+		result='불합격';
+	}
+
+	window.alert('시험결과'
+				+'\n총 점: '+sum
+				+'점\n평 균: '+avg.toFixed(2)
+				+'점\n등 급: '+level
+				+'등급\n패 스: '+result); 
+	}
+  </script>
+ </head>
+ <body>
+  <h1>시험 성적 결과 조회</h1>
+  <form name="fm">
+  <table>
+  	<tr>
+		<th colspan="2">시험 조회</th>
+	</tr>
+	<tr>
+		<th>국어</th>
+		<td><input type="text" name="kor"></td>
+	</tr>
+	<tr>
+		<th>영어</th>
+		<td><input type="text" name="eng"></td>
+	</tr>
+	<tr>
+		<th>수학</th>
+		<td><input type="text" name="math"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<input type="button" value="결과조회" onClick="show()">
+			<input type="reset" value="초기화">
+		</td>
+	</tr>
+  </table>
+  </form>
+ </body>
+</html>
